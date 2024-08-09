@@ -3,16 +3,7 @@ name = "fuzzydate"
 description = "A flexible date parsing library"
 version = "0.2.2"
 edition = "2021"
-authors = ["Devin Vander Stelt"]
-keywords = ["date", "time", "parse", "fuzzy", "string"]
-categories = [
-    "accessibility",
-    "date-and-time",
-    "parser-implementations",
-    "text-processing",
-]
-license = "MIT"
-repository = "https://github.com/DevinVS/fuzzydate"
+authors = ["Abhay Agarwal"]
 
 [dependencies]
 chrono = "0.4"
