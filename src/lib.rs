@@ -229,6 +229,15 @@ pub fn parse(input: impl Into<String>) -> Output {
     parse_with_default_time(input, Local::now().naive_local().time())
 }
 
+/// Parse an input string into a chrono NaiveDateTime with the default
+/// time being now
+pub fn parse_interval(input: impl Into<String>) -> Result<(NaiveDateTime, NaiveDateTime), Error> {
+    let lexemes = lexer::Lexeme::lex_line(input.into())?;
+    let (tree, _) = ast::DateTime::parse(lexemes.as_slice()).ok_or(Error::ParseError)?;
+
+    tree.to_chrono_interval(Local::now().naive_local().time(), None)
+}
+
 #[test]
 fn test_parse() {
     use chrono::Datelike;
